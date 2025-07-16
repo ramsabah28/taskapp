@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class CCard extends StatelessWidget {
   final String name;
   final String desc;
+  final String imageUrl;
 
- const CCard({required this.name, required this.desc, super.key});
+ const CCard({required this.name, required this.desc, required this.imageUrl, super.key});
 
   @override
   Widget build(BuildContext con) {
@@ -14,7 +15,7 @@ class CCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
              ListTile(
-              leading: Icon(Icons.safety_check),
+              leading:Image.network(imageUrl),
               title: Text(name),
               subtitle: Text(desc),
             ),

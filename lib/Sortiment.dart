@@ -12,7 +12,7 @@ class Sortiment extends StatelessWidget {
 
     return jsonData
         .map<Map<String, dynamic>>(
-            (item) => {'name': item['name'], 'description': item['description']})
+            (item) => {'name': item['name'], 'description': item['description'], 'imageUrl':item['imageUrl']})
         .toList();
   }
 
@@ -41,6 +41,7 @@ class Sortiment extends StatelessWidget {
                     child: CCard(
                       name: item['name'],
                       desc: item['description'],
+                      imageUrl: item['imageUrl'],
                     ),
                   );
                 },

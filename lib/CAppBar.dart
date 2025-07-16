@@ -1,15 +1,59 @@
 import 'package:flutter/material.dart';
 
-class CAppBar extends StatelessWidget implements PreferredSizeWidget{
-
+class CAppBar extends StatefulWidget implements PreferredSizeWidget {
   CAppBar({super.key});
 
   @override
-  Widget build(BuildContext con) {
-    return AppBar(title: const Text("PlaceHolder"),);
-  }
+  State<CAppBar> createState() => _CAppBarState();
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class _CAppBarState extends State<CAppBar> {
+  final SearchController _controller = SearchController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      elevation: 0,
+      color: Theme.of(context).appBarTheme.backgroundColor,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: SearchAnchor(
+          searchController: _controller,
+
+          builder: (BuildContext context, SearchController controller) {
+            return FractionallySizedBox(
+              widthFactor: 0.9, // Adjusts width to 90% of screen
+              child: SearchBar(
+                elevation: WidgetStateProperty.all(0),
+                controller: controller,
+                padding: const WidgetStatePropertyAll<EdgeInsets>(
+                  EdgeInsets.symmetric(horizontal: 10.0),
+                ),
+                onTap: controller.openView,
+                leading: const Icon(Icons.search),
+                trailing: <Widget>[],
+              ),
+            );
+          },
+          suggestionsBuilder: (BuildContext context, SearchController controller) {
+            //TODO: USE DB
+            return List<ListTile>.generate(5, (int index) {
+              final String item = 'item $index';
+              return ListTile(
+                title: Text(item),
+                onTap: () {
+                  controller.closeView(item);
+                  setState(() {});
+                },
+              );
+            });
+          },
+        ),
+      ),
+    );
+  }
 
 }
