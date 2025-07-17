@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Sortiment.dart';
 import 'CAppBar.dart';
+import 'FilterView.dart';
 
 
 void main() {
@@ -65,32 +66,58 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int currentPageIndex = 0;
+  String? filterSearchParam;
+
+  void _onSearchSelected(String searchParam) {
+    setState(() {
+      filterSearchParam = searchParam;
+    });
+  }
+
+  void _clearFilter() {
+    setState(() {
+      filterSearchParam = null;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     Widget currentBody;
 
-    switch (currentPageIndex) {
-      case 1:
-        currentBody = const Sortiment();
-        break;
-      case 2:
-        currentBody = const Center(child: Text("Warenkorb Placeholder"));
-        break;
-      case 0:
-      default:
-        currentBody = const Center(child: Text("Home Placeholder"));
-        break;
+    if (filterSearchParam != null) {
+      currentBody = FilterView(searchParam: filterSearchParam);
+    } else {
+      switch (currentPageIndex) {
+        case 1:
+          currentBody = const Sortiment();
+          break;
+        case 2:
+          currentBody = const Center(child: Text("Warenkorb Placeholder"));
+          break;
+        case 0:
+        default:
+          currentBody = const Center(child: Text("Home Placeholder"));
+          break;
+      }
     }
 
     return Scaffold(
-      appBar: CAppBar(),
+      appBar: filterSearchParam != null
+          ? AppBar(
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: _clearFilter,
+              ),
+              title: const Text('Filter Results'),
+            )
+          : CAppBar(onSearchSelected: _onSearchSelected),
       body: currentBody,
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentPageIndex,
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
+            filterSearchParam = null; // Reset search/filter when navigating
           });
         },
         destinations: const <NavigationDestination>[
@@ -117,7 +144,6 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.person_outline),
             label: 'Home',
           ),
-
         ],
       ),
     );

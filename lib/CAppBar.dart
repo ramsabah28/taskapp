@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'FilterView.dart';
 
 class CAppBar extends StatefulWidget implements PreferredSizeWidget {
-  CAppBar({super.key});
+  final void Function(String)? onSearchSelected;
+  CAppBar({super.key, this.onSearchSelected});
 
   @override
   State<CAppBar> createState() => _CAppBarState();
@@ -46,12 +47,9 @@ class _CAppBarState extends State<CAppBar> {
                   title: Text(item),
                   onTap: () {
                     controller.closeView(item);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => FilterView(searchParam: item),
-                      ),
-                    );
+                    if (widget.onSearchSelected != null) {
+                      widget.onSearchSelected!(item);
+                    }
                   },
                 );
               });
