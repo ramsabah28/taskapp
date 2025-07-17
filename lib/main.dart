@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: const Icon(Icons.arrow_back),
                 onPressed: _clearFilter,
               ),
-              title: const Text('Filter Results'),
+              title:  Text(filterSearchParam ?? ''),
             )
           : CAppBar(onSearchSelected: _onSearchSelected),
       body: currentBody,
@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
-            filterSearchParam = null; // Reset search/filter when navigating
+            filterSearchParam = null; // Reset search
           });
         },
         destinations: const <NavigationDestination>[
@@ -127,11 +127,11 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Badge(child: Icon(Icons.list)),
+            icon: Icon(Icons.list),
             label: 'Sortiment',
           ),
           NavigationDestination(
-            icon: Badge(label: Text('2'), child: Icon(Icons.shopping_bag)),
+            icon: Icon(Icons.shopping_bag),
             label: 'Warenkorb',
           ),
           NavigationDestination(

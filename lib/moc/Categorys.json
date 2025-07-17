@@ -1,12 +1,52 @@
 [
   {
     "name": "Sport",
-    "description": "Description 1",
+    "description": "Entdecke alles rund um Fitness, Outdoor und Teamsport.",
     "imageUrl": "https://i.otto.de/i/otto/77499f92-b9ec-4dd8-9749-fbe6c0bcf099?h=1040&w=1102&qlt=40&unsharp=0,1,0.6,7&sm=clamp&upscale=true&fmt=auto"
   },
   {
-    "name": "Category 2",
-    "description": "Description 2",
+    "name": "Multimedia",
+    "description": "Technik und Unterhaltung: Fernseher, Kameras und mehr.",
+    "imageUrl": "https://i.otto.de/i/otto/77499f92-b9ec-4dd8-9749-fbe6c0bcf099?h=1040&w=1102&qlt=40&unsharp=0,1,0.6,7&sm=clamp&upscale=true&fmt=auto"
+  },
+  {
+    "name": "Mode",
+    "description": "Aktuelle Trends für Damen, Herren und Kinder.",
+    "imageUrl": "https://i.otto.de/i/otto/77499f92-b9ec-4dd8-9749-fbe6c0bcf099?h=1040&w=1102&qlt=40&unsharp=0,1,0.6,7&sm=clamp&upscale=true&fmt=auto"
+  },
+  {
+    "name": "Beauty",
+    "description": "Pflegeprodukte, Kosmetik und Parfum für jeden Anlass.",
+    "imageUrl": "https://i.otto.de/i/otto/77499f92-b9ec-4dd8-9749-fbe6c0bcf099?h=1040&w=1102&qlt=40&unsharp=0,1,0.6,7&sm=clamp&upscale=true&fmt=auto"
+  },
+  {
+    "name": "Küche",
+    "description": "Alles für deine Küche – von Geräten bis Zubehör.",
+    "imageUrl": "https://i.otto.de/i/otto/77499f92-b9ec-4dd8-9749-fbe6c0bcf099?h=1040&w=1102&qlt=40&unsharp=0,1,0.6,7&sm=clamp&upscale=true&fmt=auto"
+  },
+  {
+    "name": "Haushalt",
+    "description": "Praktische Helfer für Reinigung, Waschen und Ordnung.",
+    "imageUrl": "https://i.otto.de/i/otto/77499f92-b9ec-4dd8-9749-fbe6c0bcf099?h=1040&w=1102&qlt=40&unsharp=0,1,0.6,7&sm=clamp&upscale=true&fmt=auto"
+  },
+  {
+    "name": "Möbel",
+    "description": "Inspiration für Wohnzimmer, Schlafzimmer und mehr.",
+    "imageUrl": "https://i.otto.de/i/otto/77499f92-b9ec-4dd8-9749-fbe6c0bcf099?h=1040&w=1102&qlt=40&unsharp=0,1,0.6,7&sm=clamp&upscale=true&fmt=auto"
+  },
+  {
+    "name": "Baumarkt",
+    "description": "Werkzeuge, Gartenbedarf und DIY-Zubehör.",
+    "imageUrl": "https://i.otto.de/i/otto/77499f92-b9ec-4dd8-9749-fbe6c0bcf099?h=1040&w=1102&qlt=40&unsharp=0,1,0.6,7&sm=clamp&upscale=true&fmt=auto"
+  },
+  {
+    "name": "Textilien",
+    "description": "Heimtextilien wie Bettwäsche, Vorhänge und Teppiche.",
+    "imageUrl": "https://i.otto.de/i/otto/77499f92-b9ec-4dd8-9749-fbe6c0bcf099?h=1040&w=1102&qlt=40&unsharp=0,1,0.6,7&sm=clamp&upscale=true&fmt=auto"
+  },
+  {
+    "name": "Baby",
+    "description": "Alles für die Kleinsten – Kleidung, Pflege und Spielzeug.",
     "imageUrl": "https://i.otto.de/i/otto/77499f92-b9ec-4dd8-9749-fbe6c0bcf099?h=1040&w=1102&qlt=40&unsharp=0,1,0.6,7&sm=clamp&upscale=true&fmt=auto"
   }
 ]

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'PCard.dart';
 import 'CCard.dart';
 
 class FilterView extends StatefulWidget {
@@ -53,10 +54,13 @@ class _FilterViewState extends State<FilterView> {
                     (context, index) {
                   final item = data[index];
                   return Center(
-                    child: CCard(
+                    child: PCard(
                       name: item['name'],
                       desc: item['description'],
                       imageUrl: item['imageUrl'],
+                      producer: item['producer'],
+                      count: item['count'],
+                      category: item['category'],
                     ),
                   );
                 },
