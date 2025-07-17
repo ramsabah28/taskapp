@@ -17,29 +17,29 @@ class _CAppBarState extends State<CAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 0,
-      color: Theme.of(context).appBarTheme.backgroundColor,
-      child: Padding(
-        padding: const EdgeInsets.all(25.0),
-        child: SearchAnchor(
-          searchController: _controller,
-
-          builder: (BuildContext context, SearchController controller) {
-            return FractionallySizedBox(
-              widthFactor: 0.9, // Adjusts width to 90% of screen
-              child: SearchBar(
-                elevation: WidgetStateProperty.all(0),
-                controller: controller,
-                padding: const WidgetStatePropertyAll<EdgeInsets>(
-                  EdgeInsets.symmetric(horizontal: 10.0),
+    return SafeArea(
+      child: Material(
+        elevation: 0,
+        color: Theme.of(context).appBarTheme.backgroundColor,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: SearchAnchor(
+            searchController: _controller,
+            builder: (BuildContext context, SearchController controller) {
+              return FractionallySizedBox(
+                widthFactor: 0.9, // Adjusts width to 90% of screen
+                child: SearchBar(
+                  elevation: WidgetStateProperty.all(0),
+                  controller: controller,
+                  padding: const WidgetStatePropertyAll<EdgeInsets>(
+                    EdgeInsets.symmetric(horizontal: 10.0),
+                  ),
+                  onTap: controller.openView,
+                  leading: const Icon(Icons.search),
+                  trailing: <Widget>[],
                 ),
-                onTap: controller.openView,
-                leading: const Icon(Icons.search),
-                trailing: <Widget>[],
-              ),
-            );
-          },
+              );
+            },
             suggestionsBuilder: (BuildContext context, SearchController controller) {
               return List<ListTile>.generate(5, (int index) {
                 final String item = 'item $index';
@@ -54,8 +54,7 @@ class _CAppBarState extends State<CAppBar> {
                 );
               });
             }
-
-
+          ),
         ),
       ),
     );
