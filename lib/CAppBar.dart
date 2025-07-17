@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'FilterView.dart';
 
 class CAppBar extends StatefulWidget implements PreferredSizeWidget {
   CAppBar({super.key});
@@ -19,7 +20,7 @@ class _CAppBarState extends State<CAppBar> {
       elevation: 0,
       color: Theme.of(context).appBarTheme.backgroundColor,
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(25.0),
         child: SearchAnchor(
           searchController: _controller,
 
@@ -38,19 +39,25 @@ class _CAppBarState extends State<CAppBar> {
               ),
             );
           },
-          suggestionsBuilder: (BuildContext context, SearchController controller) {
-            //TODO: USE DB
-            return List<ListTile>.generate(5, (int index) {
-              final String item = 'item $index';
-              return ListTile(
-                title: Text(item),
-                onTap: () {
-                  controller.closeView(item);
-                  setState(() {});
-                },
-              );
-            });
-          },
+            suggestionsBuilder: (BuildContext context, SearchController controller) {
+              return List<ListTile>.generate(5, (int index) {
+                final String item = 'item $index';
+                return ListTile(
+                  title: Text(item),
+                  onTap: () {
+                    controller.closeView(item);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FilterView(searchParam: item),
+                      ),
+                    );
+                  },
+                );
+              });
+            }
+
+
         ),
       ),
     );

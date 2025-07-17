@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Sortiment.dart';
 import 'CAppBar.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,13 +16,44 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan),
+        colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: Color(0xFF0066CC),       // Primary Blue
+          onPrimary: Colors.white,          // Text on primary buttons
+          secondary: Color(0xFF2B2B2B),     // For headings or icons
+          onSecondary: Colors.white,        // Text on secondary surfaces
+          background: Color(0xFFE5EAF1),     // Background
+          onBackground: Color(0xFF2B2B2B),   // General text
+          surface: Colors.white,            // Cards, containers
+          onSurface: Color(0xFF8A8A8A),
+          error: Colors.red,
+          onError: Colors.white,
+        ),
+        scaffoldBackgroundColor: Color(0xFFE5EAF1), // Match screen bg
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFFE5EAF1),
+          foregroundColor: Color(0xFF2B2B2B),
+          elevation: 0,
+        ),
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(color: Color(0xFF2B2B2B)), // replaces headline6
+          bodyMedium: TextStyle(color: Color(0xFF8A8A8A)), // replaces bodyText2
+        ),
+
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFF0066CC),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+        ),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -75,6 +107,17 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Badge(label: Text('2'), child: Icon(Icons.shopping_bag)),
             label: 'Warenkorb',
           ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.favorite),
+            icon: Icon(Icons.favorite_outline),
+            label: 'Merkliste',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.person),
+            icon: Icon(Icons.person_outline),
+            label: 'Home',
+          ),
+
         ],
       ),
     );

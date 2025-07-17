@@ -53,6 +53,7 @@ dev_dependencies:
 flutter:
   assets:
     - lib/moc/Categorys.json
+    - lib/moc/Products.json
 
 
   # The following line ensures that the Material Icons font is
